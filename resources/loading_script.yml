@@ -1,0 +1,17 @@
+resources:
+  jobs:
+    loading_script:
+      name: loading_script
+      description: Loads data from the darwin topic
+      timeout_seconds: 6000
+      tasks:
+        - task_key: loading-data-task
+          spark_python_task:
+            python_file: ../src/loading_script/loading.py
+          environment_key: default
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "2"
+            dependencies:
+              - stomp-py

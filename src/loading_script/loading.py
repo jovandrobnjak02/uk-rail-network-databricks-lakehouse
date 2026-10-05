@@ -1,6 +1,6 @@
 import stomp
 import time
-import dbutils.secrets
+from databricks.sdk.runtime import dbutils
 
 class DarwinTopicConnection(stomp.ConnectionListener):
     def on_error(self, headers, message):
@@ -28,3 +28,6 @@ def main(*args, **kwargs):
     except KeyboardInterrupt:
         print("\nDisconnecting...")
         conn.disconnect()
+
+if __name__ == "__main__":
+    main()

@@ -18,15 +18,15 @@ dev = [
     "databricks-dlt",
     "databricks-connect>=15.4,<15.5",
     "ipykernel",
-    "stomp.py"
+    "stomp-py"
 ]
-
-[project.scripts]
-loading-script = "remembering.loading_script.loading:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/loading_script"]
 
 [tool.ruff]
 line-length = 120
