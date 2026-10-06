@@ -3,7 +3,8 @@ resources:
     loading_script:
       name: loading_script
       description: Loads data from the darwin topic
-      timeout_seconds: 6000
+      continuous:
+        pause_status: UNPAUSED
       tasks:
         - task_key: loading-data-task
           spark_python_task:
