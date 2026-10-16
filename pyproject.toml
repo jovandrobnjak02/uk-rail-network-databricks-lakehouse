@@ -1,14 +1,10 @@
 [project]
-name = "remembering"
+name = "rail_data_utility"
 version = "0.0.1"
-authors = [{ name = "jovancar13@gmail.com" }]
+authors = [{ name = "yourname@gmail.com" }]
 requires-python = ">=3.10,<3.13"
 dependencies = [
-    # Any dependencies for jobs and pipelines in this project can be added here
-    # See also https://docs.databricks.com/dev-tools/bundles/library-dependencies
-    #
-    # LIMITATION: for pipelines, dependencies are cached during development;
-    # add dependencies to the 'environment' section of your pipeline.yml file instead
+    "stomp-py"
 ]
 
 [dependency-groups]
@@ -25,8 +21,8 @@ dev = [
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/loading_script"]
+[project.scripts]
+loading-script = "rail_data_utility.loading:main"
 
 [tool.ruff]
 line-length = 120
