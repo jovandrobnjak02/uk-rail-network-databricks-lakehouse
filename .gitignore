@@ -9,3 +9,5 @@ scratch/**
 **/explorations/**
 **/!explorations/README.md
 .vscode/
+*.xml
+todo.txt
