@@ -14,7 +14,6 @@ dev = [
     "databricks-dlt",
     "databricks-connect>=15.4,<15.5",
     "ipykernel",
-    "stomp-py"
 ]
 
 [build-system]

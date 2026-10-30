@@ -995,7 +995,6 @@ dev = [
     { name = "ipykernel", version = "7.4.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "pytest" },
     { name = "ruff" },
-    { name = "stomp-py" },
 ]
 
 [package.metadata]
@@ -1008,7 +1007,6 @@ dev = [
     { name = "ipykernel" },
     { name = "pytest" },
     { name = "ruff" },
-    { name = "stomp-py" },
 ]
 
 [[package]]

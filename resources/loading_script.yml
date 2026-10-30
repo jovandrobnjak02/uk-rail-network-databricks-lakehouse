@@ -5,6 +5,8 @@ resources:
       description: Loads data from the darwin topic
       continuous:
         pause_status: UNPAUSED
+      email_notifications:
+        on_failure: ${var.notification_emails}
       tasks:
         - task_key: loading-data-task
           python_wheel_task:
@@ -14,7 +16,10 @@ resources:
               volume_path: /Volumes/${var.catalog}/landing/landing_volume/darwin-topic
               flush_time: "60"
               stomp_host: darwin-dist-44ae45.nationalrail.co.uk
+              stomp_port: "61613"
               darwin_topic: /topic/darwin.pushport-v16
+              client_id: rail-data-utility-${bundle.target}
+              secret_scope: darwin-topic-creds
           environment_key: default
       environments:
         - environment_key: default
