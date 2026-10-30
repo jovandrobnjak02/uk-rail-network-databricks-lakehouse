@@ -25,3 +25,6 @@ loading-script = "rail_data_utility.loading:main"
 
 [tool.ruff]
 line-length = 120
+
+[tool.databricks.environment]
+environment_version = '6'
