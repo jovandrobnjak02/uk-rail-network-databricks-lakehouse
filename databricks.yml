@@ -16,6 +16,11 @@ artifacts:
 variables:
   catalog:
     description: The catalog to use
+  notification_emails:
+    description: Email addresses notified when a job fails
+    type: complex
+    default:
+      - jovancar13@gmail.com
 
 targets:
   local:
