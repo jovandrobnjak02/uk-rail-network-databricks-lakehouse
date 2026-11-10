@@ -1,0 +1,27 @@
+resources:
+  jobs:
+    timetable_to_landing:
+      name: timetable_to_landing
+      description: Copies Darwin timetable and reference files from S3 into the landing volume
+      # one run at a time: concurrent runs would download the same keys twice
+      max_concurrent_runs: 1
+      schedule:
+        # every 6h UTC; the daily drop lands ~01:10 UTC in summer and ~02:10 UTC in winter,
+        # and extra intraday drops do happen, so a once-daily run would miss them
+        quartz_cron_expression: "0 0 3,9,15,21 * * ?"
+        timezone_id: UTC
+        # no explicit pause_status: development targets pause it, production runs it
+      email_notifications:
+        on_failure: ${var.notification_emails}
+      tasks:
+        - task_key: copy-timetable-files
+          notebook_task:
+            notebook_path: ../src/notebooks/timetable_to_landing.py
+            base_parameters:
+              s3_bucket: ${var.darwin_s3_bucket}
+              s3_object_prefix: PPTimetable/
+              region: ${var.darwin_s3_region}
+              secret_scope: darwin-s3-creds
+              landing_path: /Volumes/${var.catalog}/landing/landing_volume/darwin-s3
+              include_patterns: "*_v8.xml.gz,*_ref_v3.xml.gz"
+              dry_run: "false"

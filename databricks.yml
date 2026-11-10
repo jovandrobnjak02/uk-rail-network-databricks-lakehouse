@@ -16,6 +16,12 @@ artifacts:
 variables:
   catalog:
     description: The catalog to use
+  darwin_s3_bucket:
+    description: S3 bucket holding the Darwin timetable and reference files
+    default: darwin.xmltimetable
+  darwin_s3_region:
+    description: AWS region of the Darwin S3 bucket
+    default: eu-west-1
   notification_emails:
     description: Email addresses notified when a job fails
     type: complex

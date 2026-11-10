@@ -26,6 +26,10 @@ loading-script = "rail_data_utility.loading:main"
 [tool.ruff]
 line-length = 120
 
+[tool.ruff.lint.per-file-ignores]
+# dbutils is injected by the Databricks notebook runtime, not imported
+"src/notebooks/*.py" = ["F821"]
+
 [tool.databricks.environment]
 environment_version = "2"
 

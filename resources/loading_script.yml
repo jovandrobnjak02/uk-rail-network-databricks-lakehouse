@@ -3,8 +3,8 @@ resources:
     loading_script:
       name: loading_script
       description: Loads data from the darwin topic
-      continuous:
-        pause_status: UNPAUSED
+      # no explicit pause_status: development targets pause it, production runs it
+      continuous: {}
       email_notifications:
         on_failure: ${var.notification_emails}
       tasks:
