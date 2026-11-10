@@ -1,0 +1,30 @@
+[project]
+name = "rail_data_utility"
+version = "0.0.1"
+authors = [{ name = "yourname@gmail.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "stomp-py"
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+    "databricks-dlt",
+    "databricks-connect>=15.4,<15.5",
+    "ipykernel",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+loading-script = "rail_data_utility.loading:main"
+
+[tool.ruff]
+line-length = 120
+
+[tool.databricks.environment]
+environment_version = '6'
